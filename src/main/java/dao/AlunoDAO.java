@@ -1,6 +1,7 @@
-package org.example;
+package dao;
 
-import org.xml.sax.SAXException;
+import model.Aluno;
+import model.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,7 @@ public class AlunoDAO {
         String sql = "INSERT INTO alunos (nome, matricula, curso) VALUES (?, ?, ?)";
 
         try (Connection conn = Conexao.conectar();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, aluno.getNome());
             stmt.setString(2, aluno.getMatricula());

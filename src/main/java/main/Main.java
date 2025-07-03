@@ -1,6 +1,8 @@
-package org.example;
+package main;
 
-import java.sql.Connection;
+import dao.UsuarioDAO;
+import model.Usuario;
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or

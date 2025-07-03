@@ -1,4 +1,4 @@
-package org.example;
+package model;
 
 public class Aluno {
     private String nome, matricula, curso;
