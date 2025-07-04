@@ -1,14 +1,15 @@
-package main;
+package service;
 
 import dao.UsuarioDAO;
 import model.Usuario;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
+public class Gerenciamento {
+
+    UsuarioDAO user = new UsuarioDAO();
+
+    private void cadastroUsuario(){
         Scanner sc = new Scanner(System.in);
 
         String nome, email;
