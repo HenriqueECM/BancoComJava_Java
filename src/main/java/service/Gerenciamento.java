@@ -108,4 +108,17 @@ public class Gerenciamento {
         Funcionario funcionario = new Funcionario(nome, cargo, salario);
         funcionarios.inserir(funcionario);
     }
+
+    public void atualizarUsuarioEmail(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite nome do usuario que quer atualizar: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Digite novo email: ");
+        String email = sc.nextLine();
+
+        Usuario usuario = new Usuario(nome, email);
+
+    }
 }

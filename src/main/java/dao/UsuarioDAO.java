@@ -25,4 +25,36 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
+
+    public void atualizarEmail(Usuario usuario) {
+        String sql = "UPDATE usuarios SET email = ? WHERE nome = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, usuario.getEmail());
+            stmt.setString(2, usuario.getNome());
+            stmt.executeUpdate();
+
+            System.out.println("Email atualizado com sucesso!");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void atualizarNome(Usuario usuario) {
+        String sql = "UPDATE usuarios SET nome = ? WHERE email = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getEmail());
+
+            System.out.println("Nome atualizado com sucesso!");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
