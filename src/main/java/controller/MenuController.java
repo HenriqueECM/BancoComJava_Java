@@ -3,11 +3,12 @@ package controller;
 import dao.UsuarioDAO;
 
 import java.util.Scanner;
+import service.Gerenciamento;
 
 public class MenuController {
 
     private static Scanner sc = new Scanner(System.in);
-    private
+    Gerenciamento gerenciamento = new Gerenciamento();
 
     public void menu(){
         int opcao;
@@ -19,6 +20,8 @@ public class MenuController {
                     1. CADASTRO
                     2. LISTAR CADASTRO
                     3. SAIR
+                    
+                    Escolha uma opção: 
                     """);
             opcao = sc.nextInt();
 
@@ -55,16 +58,18 @@ public class MenuController {
                     5. Cadastrar Pedidos
                     6. Cadastrar Livros
                     7. Sair
+                    
+                    Escolha uma opção: 
                     """);
             opcao = sc.nextInt();
 
             switch (opcao) {
-                case 1: cadastroUsuario(); break;
-                case 2: cadastroAluno(); break;
-                case 3: cadastroFuncionario(); break;
-                case 4: cadastroProduto(); break;
-                case 5: cadastrarPedido(); break;
-                case 6: cadastrarLivro(); break;
+                case 1: gerenciamento.cadastroUsuario(sc); break;
+                case 2:  break;
+                case 3:  break;
+                case 4:  break;
+                case 5:  break;
+                case 6:  break;
                 case 7:
                     System.out.println("Retornando...");
                     break;
