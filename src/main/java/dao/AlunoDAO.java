@@ -8,7 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AlunoDAO {
-    public void inserir (Aluno aluno) throws SQLException {
+
+    public void inserir (Aluno aluno) {
         String sql = "INSERT INTO alunos (nome, matricula, curso) VALUES (?, ?, ?)";
 
         try (Connection conn = Conexao.conectar();

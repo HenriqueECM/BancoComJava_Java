@@ -1,12 +1,12 @@
 package model;
 
 public class Funcionario {
-    private String nome, cargp;
+    private String nome, cargo;
     private double salario;
 
-    public Funcionario(double salario, String cargp, String nome) {
+    public Funcionario(String nome, String cargo, double salario) {
         this.salario = salario;
-        this.cargp = cargp;
+        this.cargo = cargo;
         this.nome = nome;
     }
 
@@ -19,11 +19,11 @@ public class Funcionario {
     }
 
     public String getCargp() {
-        return cargp;
+        return cargo;
     }
 
     public void setCargp(String cargp) {
-        this.cargp = cargp;
+        this.cargo = cargp;
     }
 
     public double getSalario() {

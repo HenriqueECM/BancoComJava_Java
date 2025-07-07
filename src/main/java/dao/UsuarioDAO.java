@@ -20,7 +20,8 @@ public class UsuarioDAO {
             stmt.executeUpdate();
 
             System.out.println("Usuário inserido com sucesso!");
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -66,11 +66,11 @@ public class MenuController {
 
             switch (opcao) {
                 case 1: gerenciamento.cadastroUsuario(sc); break;
-                case 2:  break;
-                case 3:  break;
-                case 4:  break;
-                case 5:  break;
-                case 6:  break;
+                case 2: gerenciamento.cadastroAluno(sc); break;
+                case 3: gerenciamento.cadastroFuncionario(sc); break;
+                case 4: gerenciamento.cadastroProduto(sc); break;
+                case 5: gerenciamento.cadastroPedido(sc); break;
+                case 6: gerenciamento.cadastroLivro(sc); break;
                 case 7:
                     System.out.println("Retornando...");
                     break;
