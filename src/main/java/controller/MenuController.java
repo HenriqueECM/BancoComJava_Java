@@ -34,6 +34,7 @@ public class MenuController {
                     break;
                 case 3:
                     System.out.println("Saindo do sistema...");
+                    System.out.println("Sistema Encerrado!");
                     break;
                 default:
                     System.out.println("Opção Inválida! Tente Novamente.");

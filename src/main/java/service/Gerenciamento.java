@@ -11,7 +11,7 @@ public class Gerenciamento {
 
     public void cadastroUsuario(Scanner sc){
 
-        UsuarioDAO user = new UsuarioDAO();
+        sc.nextLine();
 
         System.out.println("Digite seu nome: ");
         String nome = sc.nextLine();
