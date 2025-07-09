@@ -80,6 +80,46 @@ public class MenuController {
         } while(opcao != 7);
     }
 
+    private void atualizarLivros() {
+    }
+
+    private void atualizarPedidos() {
+    }
+
+    private void atualizarProdutos() {
+    }
+
+    private void atualizarFuncionario() {
+    }
+
+    private void atualizarAluno() {
+    }
+
+    private void atualizarUsuario() {
+        int opcao;
+
+        do {
+            System.out.println("""
+                    === MENU DE ATUALIZAR USUÁRIO ===
+                    
+                    1. Atualizar email
+                    2. Sair
+                    
+                    Escolha uma opção: 
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao){
+                case 1: gerenciamento.atualizarUsuarioEmail(sc); break;
+                case 2:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção Inválida! Tente Novamente.");
+            }
+        }while(opcao != 2);
+    }
+
     private void listarCadastro() {
     }
 

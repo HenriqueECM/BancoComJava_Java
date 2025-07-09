@@ -120,5 +120,6 @@ public class Gerenciamento {
 
         Usuario usuario = new Usuario(nome, email);
 
+        user.atualizarEmail(usuario);
     }
 }
