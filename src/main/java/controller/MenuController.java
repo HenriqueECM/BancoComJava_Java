@@ -83,10 +83,31 @@ public class MenuController {
     private void atualizarLivros() {
     }
 
-    private void atualizarPedidos() {
+    private void atualizarFuncionario() {
     }
 
-    private void atualizarFuncionario() {
+    private void atualizarPedidos() {
+        int opcao;
+        do {
+            System.out.println("""
+                    === MENU DE ATUALIZAR PEDIDO ===
+                    
+                    1. Atualizar valor total
+                    2. Sair
+                    
+                    Escolha uma opção:
+                    """);
+            opcao = sc.nextInt();
+            switch (opcao){
+                case 1: gerenciamento.atualizarPedidosValor(sc); break;
+                case 2:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente Novamente.");
+                    break;
+            }
+        } while(opcao != 2);
     }
 
     private void atualizarProdutos() {

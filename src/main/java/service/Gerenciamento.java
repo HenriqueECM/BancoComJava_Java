@@ -151,4 +151,17 @@ public class Gerenciamento {
 
         produtos.atualizarPreco(produto);
     }
+
+    public void atualizarPedidosValor(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite id do pedido que quer atualizar");
+        int id = sc.nextInt();
+
+        System.out.println("Digite novo valor total do pedido: ");
+        double valor = sc.nextDouble();
+
+        Pedidos pedido = new Pedidos(id, "", "", valor);
+        pedidos.atualizarValor(pedido);
+    }
 }
