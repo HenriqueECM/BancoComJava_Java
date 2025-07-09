@@ -17,6 +17,7 @@ public class FuncionarioDAO {
             stmt.setString(1,funcionario.getNome());
             stmt.setString(2, funcionario.getCargp());
             stmt.setDouble(3, funcionario.getSalario());
+            stmt.executeUpdate();
 
             System.out.println("Funcionario inserido com sucesso!");
 

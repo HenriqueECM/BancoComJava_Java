@@ -17,6 +17,7 @@ public class ProdutosDAO {
             stmt.setString(1, produtos.getNome());
             stmt.setDouble(2, produtos.getPreco());
             stmt.setInt(3, produtos.getQuantidade());
+            stmt.executeUpdate();
 
             System.out.println("Produtos inseridos com sucesso!");
         }

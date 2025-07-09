@@ -17,6 +17,7 @@ public class PedidosDAO {
             stmt.setString(1, pedidos.getCliente());
             stmt.setString(2, pedidos.getDataPedido());
             stmt.setDouble(3, pedidos.getTotal());
+            stmt.executeUpdate();
 
             System.out.println("Pedido inserido com sucesso!");
         } catch (SQLException e) {

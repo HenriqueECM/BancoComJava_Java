@@ -17,6 +17,7 @@ public class LivrosDAO {
             stmt.setString(1, livros.getTitulo());
             stmt.setString(2, livros.getAutor());
             stmt.setInt(3, livros.getAnoPublicacao());
+            stmt.executeUpdate();
 
             System.out.println("Livro inserido com sucesso!");
         }

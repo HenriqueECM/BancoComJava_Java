@@ -18,6 +18,8 @@ public class AlunoDAO {
             stmt.setString(1, aluno.getNome());
             stmt.setString(2, aluno.getMatricula());
             stmt.setString(3, aluno.getCurso());
+            // comando para executar o update
+            stmt.executeUpdate();
 
             System.out.println("Aluno inserido com sucesso!");
         }
