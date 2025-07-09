@@ -272,10 +272,10 @@ public class MenuController {
                     
                     1. Deletar Usuário
                     2. Deletar Aluno
-                    3. Deletar Funcionario
-                    4. Deletar Produtos
-                    5. Deletar Pedidos
-                    6. Deletar Livros
+                    3. Deletar Produto
+                    4. Deletar Pedido
+                    5. Deletar Livro
+                    6. Deletar Funcionario
                     7. Sair
                     
                     Escolha uma opção:
@@ -296,6 +296,6 @@ public class MenuController {
                     System.out.println("Opção Inválida! Tente Novamente.");
                     break;
             }
-        } while (opcao != 2);
+        } while (opcao != 7);
     }
 }
