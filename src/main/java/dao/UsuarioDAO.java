@@ -57,4 +57,20 @@ public class UsuarioDAO {
 //            e.printStackTrace();
 //        }
 //    }
+
+    public void deletarUserNome(Usuario usuario){
+        String sql = "DELETE FROM usuarios WHERE nome = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, usuario.getNome());
+            stmt.executeUpdate();
+
+            System.out.println("Usuário " + usuario.getNome() + " deletado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

@@ -16,9 +16,10 @@ public class MenuController {
                     1. CADASTRO
                     2. LISTAR CADASTRO
                     3. ATUALIZAR CADASTRO
-                    4. SAIR
+                    4. DELETAR CADASTRO
+                    5. SAIR
                     
-                    Escolha uma opção: 
+                    Escolha uma opção:
                     """);
             opcao = sc.nextInt();
 
@@ -31,14 +32,18 @@ public class MenuController {
                     break;
                 case 3:
                     atualizarCadastro();
+                    break;
                 case 4:
+                    deletarCadastro();
+                    break;
+                case 5:
                     System.out.println("Saindo do sistema...");
                     System.out.println("Sistema Encerrado!");
                     break;
                 default:
                     System.out.println("Opção Inválida! Tente Novamente.");
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
     }
 
     private void atualizarFuncionario() {
@@ -220,12 +225,16 @@ public class MenuController {
         }while(opcao != 7);
     }
 
+    private void listarCadastro() {
+
+    }
+
     private void atualizarCadastro() {
         int opcao;
 
         do {
             System.out.println("""
-                    === ATUALIZAR CADASTROS ===
+                    === MENU DE ATUALIZAR CADASTROS ===
                     
                     1. Atualizar Usuário
                     2. Atualizar Aluno
@@ -235,7 +244,7 @@ public class MenuController {
                     6. Atualizar Livros
                     7. Sair
                     
-                    Escolha uma opção: 
+                    Escolha uma opção:
                     """);
             opcao = sc.nextInt();
 
@@ -255,6 +264,30 @@ public class MenuController {
         } while(opcao != 7);
     }
 
-    private void listarCadastro() {
+    private void deletarCadastro() {
+        int opcao;
+        do {
+            System.out.println("""
+                    === MENU DE DELETAR CADASTROS ===
+                    
+                    1. Deletar Usuário
+                    2. Deletar Aluno
+                    3. Deletar Funcionario
+                    4. Deletar Produtos
+                    5. Deletar Pedidos
+                    6. Deletar Livros
+                    7. Sair
+                    
+                    Escolha uma opção:
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao){
+                case 1: gerenciamento.deletarUsuarioNome(sc); break;
+                case 2:
+                    System.out.println("saindo");
+                    break;
+            }
+        } while (opcao != 2);
     }
 }

@@ -190,4 +190,14 @@ public class Gerenciamento {
         Funcionario funcionario = new Funcionario(nome, "", salario);
         funcionarios.atualizarSalario(funcionario);
     }
+
+    public void deletarUsuarioNome(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite nome do usuario que deseja deletar: ");
+        String nome = sc.nextLine();
+
+        Usuario usuario = new Usuario(nome, "");
+        user.deletarUserNome(usuario);
+    }
 }
