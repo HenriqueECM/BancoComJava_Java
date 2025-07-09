@@ -86,13 +86,55 @@ public class MenuController {
     private void atualizarPedidos() {
     }
 
-    private void atualizarProdutos() {
-    }
-
     private void atualizarFuncionario() {
     }
 
+    private void atualizarProdutos() {
+        int opcao;
+        do {
+            System.out.println("""
+                    === MENU DE ATUALIZAR PRODUTO ===
+                    
+                    1. Atualizar preço
+                    2. Sair
+                    
+                    Escolha uma opção:
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1: gerenciamento.atualizarProdutoPreco(sc); break;
+                case 2:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção Inválida! Tente Novamente.");
+            }
+        } while(opcao != 2);
+    }
+
     private void atualizarAluno() {
+        int opcao;
+        do {
+            System.out.println("""
+                    === MENU DE ATUALIZAR ALUNO ===
+                    
+                    1. Atualizar curso
+                    2. Sair
+                    
+                    Escolha uma opção:
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao){
+                case 1: gerenciamento.atualizarAlunoCurso(sc); break;
+                case 2:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção Inválida! Tente Novamente.");
+            }
+        } while (opcao != 2);
     }
 
     private void atualizarUsuario() {

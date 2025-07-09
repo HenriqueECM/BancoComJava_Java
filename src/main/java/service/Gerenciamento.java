@@ -123,4 +123,32 @@ public class Gerenciamento {
 
         user.atualizarEmail(usuario);
     }
+
+    public void atualizarAlunoCurso(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite a matrícula do aluno que quer atualizar: ");
+        String matricula = sc.nextLine();
+
+        System.out.println("Digite novo curso: ");
+        String curso = sc.nextLine();
+
+        Aluno aluno = new Aluno("",matricula, curso);
+
+        alunos.atualizarCurso(aluno);
+    }
+
+    public void atualizarProdutoPreco(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite nome do produto que quer atualizar: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Digite novo preço do produto: ");
+        double preco = sc.nextDouble();
+
+        Produtos produto = new Produtos(nome, preco, 0);
+
+        produtos.atualizarPreco(produto);
+    }
 }

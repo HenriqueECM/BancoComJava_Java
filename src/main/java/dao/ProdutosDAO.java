@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ProdutosDAO {
+
     public void inserir (Produtos produtos) {
         String sql = "INSERT INTO produtos (nome, preco, quantidade) VALUES (?, ?, ?)";
 
@@ -22,6 +23,23 @@ public class ProdutosDAO {
             System.out.println("Produtos inseridos com sucesso!");
         }
         catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void atualizarPreco(Produtos produtos) {
+        String sql = "UPDATE produtos SET preco = ? WHERE nome = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setDouble(1, produtos.getPreco());
+            stmt.setString(2, produtos.getNome());
+            stmt.executeUpdate();
+
+            System.out.println("Preço atualizado com sucesso");
+        }
+        catch (SQLException e){
             e.printStackTrace();
         }
     }
