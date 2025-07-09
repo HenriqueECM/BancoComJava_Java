@@ -222,14 +222,32 @@ public class Gerenciamento {
     }
 
     public void deletarPedidoId(Scanner sc){
+        sc.nextLine();
 
+        System.out.println("Digite id do pedido que deseja deletar: ");
+        int id = sc.nextInt();
+
+        Pedidos pedido = new Pedidos(id, "","", 0);
+        pedidos.deletePedido(pedido);
     }
 
     public void deletarLivroTitulo(Scanner sc){
+        sc.nextLine();
 
+        System.out.println("Digite o titulo do livro que deseja deletar: ");
+        String titulo = sc.nextLine();
+
+        Livros livro = new Livros(titulo, "", 0);
+        livros.deleteLivro(livro);
     }
 
     public void deletarFuncionarioNome(Scanner sc){
+        sc.nextLine();
 
+        System.out.println("Digite nome do funcionario que deseja deletar: ");
+        String nome = sc.nextLine();
+
+        Funcionario funcionario = new Funcionario(nome, "", 0);
+        funcionarios.deleteFuncionario(funcionario);
     }
 }

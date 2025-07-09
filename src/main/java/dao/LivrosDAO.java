@@ -43,4 +43,19 @@ public class LivrosDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteLivro(Livros livros){
+        String sql = "DELETE FROM livros WHERE titulo = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, livros.getTitulo());
+            stmt.executeUpdate();
+
+            System.out.println("Livro " + livros.getTitulo() + " deletado com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

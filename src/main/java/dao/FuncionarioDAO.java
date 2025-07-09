@@ -42,4 +42,20 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteFuncionario(Funcionario funcionario){
+        String sql = "DELETE FROM funcionarios WHERE nome = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, funcionario.getNome());
+            stmt.executeUpdate();
+
+            System.out.println("Funcionario " + funcionario.getNome() + " deletado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

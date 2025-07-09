@@ -52,6 +52,8 @@ public class ProdutosDAO {
 
             stmt.setString(1, produtos.getNome());
             stmt.executeUpdate();
+
+            System.out.println("Produto " + produtos.getNome() + " deletado com sucesso!");
         }
         catch(SQLException e){
             e.printStackTrace();
