@@ -19,7 +19,8 @@ public class MenuController {
                     
                     1. CADASTRO
                     2. LISTAR CADASTRO
-                    3. SAIR
+                    3. ATUALIZAR CADASTRO
+                    4. SAIR
                     
                     Escolha uma opção: 
                     """);
@@ -33,6 +34,8 @@ public class MenuController {
                     listarCadastro();
                     break;
                 case 3:
+                    atualizarCadastro();
+                case 4:
                     System.out.println("Saindo do sistema...");
                     System.out.println("Sistema Encerrado!");
                     break;
@@ -40,6 +43,41 @@ public class MenuController {
                     System.out.println("Opção Inválida! Tente Novamente.");
             }
         } while (opcao != 3);
+    }
+
+    private void atualizarCadastro() {
+        int opcao;
+
+        do {
+            System.out.println("""
+                    === ATUALIZAR CADASTROS ===
+                    
+                    1. Atualizar Usuário
+                    2. Atualizar Aluno
+                    3. Atualizar Funcionario
+                    4. Atualizar Produtos
+                    5. Atualizar Pedidos
+                    6. Atualizar Livros
+                    7. Sair
+                    
+                    Escolha uma opção: 
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao){
+                case 1: atualizarUsuario(); break;
+                case 2: atualizarAluno(); break;
+                case 3: atualizarFuncionario(); break;
+                case 4: atualizarProdutos(); break;
+                case 5: atualizarPedidos(); break;
+                case 6: atualizarLivros(); break;
+                case 7:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente Novamente.");
+            }
+        } while(opcao != 7);
     }
 
     private void listarCadastro() {
