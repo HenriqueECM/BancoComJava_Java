@@ -41,42 +41,28 @@ public class MenuController {
         } while (opcao != 4);
     }
 
-    private void atualizarCadastro() {
+    private void atualizarFuncionario() {
         int opcao;
-
         do {
             System.out.println("""
-                    === ATUALIZAR CADASTROS ===
+                    === MENU DE ATUALIZAR FUNCIONARIO ===
                     
-                    1. Atualizar Usuário
-                    2. Atualizar Aluno
-                    3. Atualizar Funcionario
-                    4. Atualizar Produtos
-                    5. Atualizar Pedidos
-                    6. Atualizar Livros
-                    7. Sair
+                    1. Atualizar sálario
+                    2. Sair
                     
-                    Escolha uma opção: 
+                    Escolha uma opção:
                     """);
             opcao = sc.nextInt();
-
             switch (opcao){
-                case 1: atualizarUsuario(); break;
-                case 2: atualizarAluno(); break;
-                case 3: atualizarFuncionario(); break;
-                case 4: atualizarProdutos(); break;
-                case 5: atualizarPedidos(); break;
-                case 6: atualizarLivros(); break;
-                case 7:
+                case 1: gerenciamento.atualizarFuncionarioSalario(sc); break;
+                case 2:
                     System.out.println("Retornando...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente Novamente.");
+                    System.out.println("Opção Inválida! Tente Novamente.");
+                    break;
             }
-        } while(opcao != 7);
-    }
-
-    private void atualizarFuncionario() {
+        } while (opcao != 2);
     }
 
     private void atualizarLivros() {
@@ -184,7 +170,7 @@ public class MenuController {
                     1. Atualizar email
                     2. Sair
                     
-                    Escolha uma opção: 
+                    Escolha uma opção:
                     """);
             opcao = sc.nextInt();
 
@@ -197,9 +183,6 @@ public class MenuController {
                     System.out.println("Opção Inválida! Tente Novamente.");
             }
         }while(opcao != 2);
-    }
-
-    private void listarCadastro() {
     }
 
     private void menuCadastrar() {
@@ -217,7 +200,7 @@ public class MenuController {
                     6. Cadastrar Livros
                     7. Sair
                     
-                    Escolha uma opção: 
+                    Escolha uma opção:
                     """);
             opcao = sc.nextInt();
 
@@ -235,5 +218,43 @@ public class MenuController {
                     System.out.println("Opção Inválida! Tente Novamente.");
             }
         }while(opcao != 7);
+    }
+
+    private void atualizarCadastro() {
+        int opcao;
+
+        do {
+            System.out.println("""
+                    === ATUALIZAR CADASTROS ===
+                    
+                    1. Atualizar Usuário
+                    2. Atualizar Aluno
+                    3. Atualizar Funcionario
+                    4. Atualizar Produtos
+                    5. Atualizar Pedidos
+                    6. Atualizar Livros
+                    7. Sair
+                    
+                    Escolha uma opção: 
+                    """);
+            opcao = sc.nextInt();
+
+            switch (opcao){
+                case 1: atualizarUsuario(); break;
+                case 2: atualizarAluno(); break;
+                case 3: atualizarFuncionario(); break;
+                case 4: atualizarProdutos(); break;
+                case 5: atualizarPedidos(); break;
+                case 6: atualizarLivros(); break;
+                case 7:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente Novamente.");
+            }
+        } while(opcao != 7);
+    }
+
+    private void listarCadastro() {
     }
 }

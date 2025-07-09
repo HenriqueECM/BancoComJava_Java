@@ -177,4 +177,17 @@ public class Gerenciamento {
         Livros livro = new Livros(titulo, autor, 0);
         livros.atualizarAutor(livro);
     }
+
+    public void atualizarFuncionarioSalario(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite o nome que quer atualizar: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Digite novo salario do funcionario " + nome + ": ");
+        double salario = sc.nextDouble();
+
+        Funcionario funcionario = new Funcionario(nome, "", salario);
+        funcionarios.atualizarSalario(funcionario);
+    }
 }
