@@ -42,7 +42,7 @@ public class MenuController {
                 default:
                     System.out.println("Opção Inválida! Tente Novamente.");
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 
     private void atualizarCadastro() {

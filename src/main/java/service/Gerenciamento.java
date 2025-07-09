@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Gerenciamento {
 
     private UsuarioDAO user = new UsuarioDAO();
-    private AlunoDAO alunodao = new AlunoDAO();
+    private AlunoDAO alunos = new AlunoDAO();
     private ProdutosDAO produtos = new ProdutosDAO();
     private PedidosDAO pedidos = new PedidosDAO();
     private LivrosDAO livros = new LivrosDAO();
@@ -30,6 +30,7 @@ public class Gerenciamento {
     }
 
     public void cadastroAluno(Scanner sc) {
+
         sc.nextLine();
 
         System.out.println("Digite seu nome: ");
@@ -42,7 +43,7 @@ public class Gerenciamento {
         String curso = sc.nextLine();
 
         Aluno aluno = new Aluno(nome, matricula, curso);
-        alunodao.inserir(aluno);
+        alunos.inserir(aluno);
     }
 
     public void cadastroProduto(Scanner sc){
