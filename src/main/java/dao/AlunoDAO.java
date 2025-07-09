@@ -43,4 +43,20 @@ public class AlunoDAO {
             e.printStackTrace();
         }
     }
+
+    public void deletarAluno(Aluno aluno){
+        String sql = "DELETE FROM alunos WHERE matricula = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, aluno.getMatricula());
+            stmt.executeUpdate();
+
+            System.out.println("Aluno " + aluno.getNome() + " deletado com sucesso!");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

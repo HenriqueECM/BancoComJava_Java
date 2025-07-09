@@ -43,4 +43,18 @@ public class ProdutosDAO {
             e.printStackTrace();
         }
     }
+
+    public void deletarProduto(Produtos produtos){
+        String sql = "DELETE FROM produtos WHERE nome = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, produtos.getNome());
+            stmt.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

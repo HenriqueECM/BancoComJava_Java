@@ -284,8 +284,16 @@ public class MenuController {
 
             switch (opcao){
                 case 1: gerenciamento.deletarUsuarioNome(sc); break;
-                case 2:
-                    System.out.println("saindo");
+                case 2: gerenciamento.deletarAlunoMatricula(sc); break;
+                case 3: gerenciamento.deletarProdutoNome(sc); break;
+                case 4: gerenciamento.deletarPedidoId(sc); break;
+                case 5: gerenciamento.deletarLivroTitulo(sc); break;
+                case 6: gerenciamento.deletarFuncionarioNome(sc); break;
+                case 7:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção Inválida! Tente Novamente.");
                     break;
             }
         } while (opcao != 2);

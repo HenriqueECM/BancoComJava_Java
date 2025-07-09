@@ -200,4 +200,36 @@ public class Gerenciamento {
         Usuario usuario = new Usuario(nome, "");
         user.deletarUserNome(usuario);
     }
+
+    public void deletarAlunoMatricula(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite matricula do aluno que deseja deletar: ");
+        String matricula = sc.nextLine();
+
+        Aluno aluno = new Aluno("", matricula, "");
+        alunos.deletarAluno(aluno);
+    }
+
+    public void deletarProdutoNome(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite nome do produto que deseja deletar: ");
+        String nome = sc.nextLine();
+
+        Produtos produto = new Produtos(nome, 0, 0);
+        produtos.deletarProduto(produto);
+    }
+
+    public void deletarPedidoId(Scanner sc){
+
+    }
+
+    public void deletarLivroTitulo(Scanner sc){
+
+    }
+
+    public void deletarFuncionarioNome(Scanner sc){
+
+    }
 }
