@@ -155,7 +155,7 @@ public class Gerenciamento {
     public void atualizarPedidosValor(Scanner sc){
         sc.nextLine();
 
-        System.out.println("Digite id do pedido que quer atualizar");
+        System.out.println("Digite id do pedido que quer atualizar: ");
         int id = sc.nextInt();
 
         System.out.println("Digite novo valor total do pedido: ");
@@ -163,5 +163,18 @@ public class Gerenciamento {
 
         Pedidos pedido = new Pedidos(id, "", "", valor);
         pedidos.atualizarValor(pedido);
+    }
+
+    public void atualizarLivroAutor(Scanner sc){
+        sc.nextLine();
+
+        System.out.println("Digite o titulo que quer atualizar: ");
+        String titulo = sc.nextLine();
+
+        System.out.println("Digite novo autor do livro: ");
+        String autor = sc.nextLine();
+
+        Livros livro = new Livros(titulo, autor, 0);
+        livros.atualizarAutor(livro);
     }
 }

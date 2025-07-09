@@ -1,10 +1,6 @@
 package controller;
-
-import dao.UsuarioDAO;
-
 import java.util.Scanner;
 import service.Gerenciamento;
-
 public class MenuController {
 
     private static Scanner sc = new Scanner(System.in);
@@ -80,10 +76,30 @@ public class MenuController {
         } while(opcao != 7);
     }
 
-    private void atualizarLivros() {
+    private void atualizarFuncionario() {
     }
 
-    private void atualizarFuncionario() {
+    private void atualizarLivros() {
+        int opcao;
+        do {
+            System.out.println("""
+                    === MENU DE ATUALIZAR LIVRO ===
+                    
+                    1. Atualizar autor
+                    2. Sair
+                    
+                    Escolha uma opção: 
+                    """);
+            opcao = sc.nextInt();
+            switch (opcao){
+                case 1: gerenciamento.atualizarLivroAutor(sc); break;
+                case 2:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    System.out.println("Opção Inválida! Tente Novamente.");
+            }
+        }while(opcao != 2);
     }
 
     private void atualizarPedidos() {

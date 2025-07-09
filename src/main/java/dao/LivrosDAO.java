@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class LivrosDAO {
+
     public void inserir(Livros livros){
         String sql = "INSERT INTO livros (titulo, autor, ano_publicacao) VALUES (?, ?, ?)";
 
@@ -22,6 +23,23 @@ public class LivrosDAO {
             System.out.println("Livro inserido com sucesso!");
         }
         catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void atualizarAutor(Livros livros){
+        String sql = "UPDATE livros SET autor = ? WHERE titulo = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, livros.getAutor());
+            stmt.setString(2, livros.getTitulo());
+            stmt.executeUpdate();
+
+            System.out.println("Autor atualizado com sucesso!");
+        }
+        catch (SQLException e){
             e.printStackTrace();
         }
     }
