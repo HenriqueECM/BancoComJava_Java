@@ -33,7 +33,7 @@ public class MenuController {
                 case 5: menuLivro(); break;
                 case 6: menuFuncionario(); break;
                 case 7:
-                    System.out.println("Encerrando o Sistema...");
+                    System.out.println("\nEncerrando o Sistema...");
                     break;
                 default:
                     System.out.println("Opção Inválida! Tente Novamente Mais Tarde.");
@@ -262,8 +262,8 @@ public class MenuController {
                     """);
             opcao = sc.nextInt();
             switch (opcao){
-                case 1:
-                case 2:
+                case 1: gerenciamento.listarTodosAlunos(); break;
+                case 2: gerenciamento.buscarIdAluno(sc); break;
                 case 3:
                     System.out.println("RETORNANDO...");
                     break;

@@ -2,11 +2,21 @@ package model;
 
 public class Aluno {
     private String nome, matricula, curso;
+    private int id;
 
-    public Aluno(String nome, String matricula, String curso){
+    public Aluno(int id, String nome, String matricula, String curso){
         this.curso = curso;
         this.nome = nome;
         this.matricula = matricula;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNome(String nome) {

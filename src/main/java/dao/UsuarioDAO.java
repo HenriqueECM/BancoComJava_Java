@@ -78,8 +78,8 @@ public class UsuarioDAO {
     }
 
     public static List<Usuario> listar() {
-        // SQL que será executado no banco de dados
-        String sql = "SELECT id,nome,email FROM usuarios";
+        // SQL que será executado no banco de dados / fazendo que ele busque todos usuarios preenchidos
+        String sql = "SELECT id,nome,email FROM usuarios WHERE nome IS NOT NULL AND email IS NOT NULL";
 
         // Lista onde serão armazenados os usuários retornados
         List<Usuario> usuarios = new ArrayList<>();

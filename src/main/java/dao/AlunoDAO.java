@@ -5,7 +5,10 @@ import model.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AlunoDAO {
 
@@ -58,5 +61,57 @@ public class AlunoDAO {
         catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public static List<Aluno> listar(){
+        String sql = "SELECT id, nome, matricula, curso FROM alunos";
+
+        List<Aluno> alunos = new ArrayList<>();
+
+        try (Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String matricula = rs.getString("matricula");
+                String curso = rs.getString("curso");
+
+                Aluno aluno = new Aluno(id, nome, matricula, curso);
+                alunos.add(aluno);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return alunos;
+    }
+
+    public static Aluno listarPorId(int id){
+        String sql = "SELECT id, nome, matricula, curso FROM alunos WHERE id = ?";
+        int newId = 0;
+        String nome = "";
+        String matricula = "";
+        String curso = "";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+                newId = rs.getInt("id");
+                nome = rs.getString("nome");
+                matricula = rs.getString("matricula");
+                curso = rs.getString("curso");
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return new Aluno(newId, nome, matricula, curso);
     }
 }
