@@ -25,7 +25,7 @@ public class Gerenciamento {
         System.out.println("Digite seu email: ");
         String email = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, email);
+        Usuario usuario = new Usuario(nome, email, 0);
         user.inserir(usuario);
     }
 
@@ -119,7 +119,7 @@ public class Gerenciamento {
         System.out.println("Digite novo email: ");
         String email = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, email);
+        Usuario usuario = new Usuario(nome, email, 0);
 
         user.atualizarEmail(usuario);
     }
@@ -197,7 +197,7 @@ public class Gerenciamento {
         System.out.println("Digite nome do usuario que deseja deletar: ");
         String nome = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, "");
+        Usuario usuario = new Usuario(nome, "", 0);
         user.deletarUserNome(usuario);
     }
 
