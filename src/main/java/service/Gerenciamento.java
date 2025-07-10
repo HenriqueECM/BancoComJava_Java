@@ -3,7 +3,7 @@ package service;
 import dao.*;
 import model.*;
 
-import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Gerenciamento {
@@ -25,7 +25,7 @@ public class Gerenciamento {
         System.out.println("Digite seu email: ");
         String email = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, email, 0);
+        Usuario usuario = new Usuario(0, nome, email);
         user.inserir(usuario);
     }
 
@@ -119,7 +119,7 @@ public class Gerenciamento {
         System.out.println("Digite novo email: ");
         String email = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, email, 0);
+        Usuario usuario = new Usuario(0, nome, email);
 
         user.atualizarEmail(usuario);
     }
@@ -197,7 +197,7 @@ public class Gerenciamento {
         System.out.println("Digite nome do usuario que deseja deletar: ");
         String nome = sc.nextLine();
 
-        Usuario usuario = new Usuario(nome, "", 0);
+        Usuario usuario = new Usuario(0, nome, "");
         user.deletarUserNome(usuario);
     }
 
@@ -249,5 +249,21 @@ public class Gerenciamento {
 
         Funcionario funcionario = new Funcionario(nome, "", 0);
         funcionarios.deleteFuncionario(funcionario);
+    }
+
+    public void listarTodosUsuario(){
+        List<Usuario> lista = UsuarioDAO.listar();
+        for (Usuario usuario : lista) {
+            System.out.println("ID: " + usuario.getId() + " | NOME: " + usuario.getNome()
+            + " | EMAIL: " + usuario.getEmail());
+        }
+    }
+
+    public void buscarIdUsuario(Scanner sc){
+        System.out.println("Digite o ID do usuário que deseja buscar: ");
+        int id = sc.nextInt();
+
+        Usuario usuario = UsuarioDAO.listarPorId(id);
+        System.out.println("\nID: " + usuario.getId() + " | NOME: "+ usuario.getNome() + " | EMAIL: " + usuario.getEmail());
     }
 }
