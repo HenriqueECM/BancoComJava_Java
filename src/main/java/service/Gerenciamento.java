@@ -42,7 +42,7 @@ public class Gerenciamento {
         System.out.println("Digite seu curso: ");
         String curso = sc.nextLine();
 
-        Aluno aluno = new Aluno(nome, matricula, curso);
+        Aluno aluno = new Aluno(0, nome, matricula, curso);
         alunos.inserir(aluno);
     }
 
@@ -133,7 +133,7 @@ public class Gerenciamento {
         System.out.println("Digite novo curso: ");
         String curso = sc.nextLine();
 
-        Aluno aluno = new Aluno("",matricula, curso);
+        Aluno aluno = new Aluno(0, "",matricula, curso);
 
         alunos.atualizarCurso(aluno);
     }
@@ -207,7 +207,7 @@ public class Gerenciamento {
         System.out.println("Digite matricula do aluno que deseja deletar: ");
         String matricula = sc.nextLine();
 
-        Aluno aluno = new Aluno("", matricula, "");
+        Aluno aluno = new Aluno(0, "", matricula, "");
         alunos.deletarAluno(aluno);
     }
 
@@ -266,4 +266,21 @@ public class Gerenciamento {
         Usuario usuario = UsuarioDAO.listarPorId(id);
         System.out.println("\nID: " + usuario.getId() + " | NOME: "+ usuario.getNome() + " | EMAIL: " + usuario.getEmail());
     }
+
+    public void listarTodosAlunos(){
+        List<Aluno> lista = AlunoDAO.listar();
+        for (Aluno aluno : lista){
+            System.out.println("ID: " + aluno.getId() + " | NOME: " + aluno.getNome() + " | MATRICULA: " + aluno.getMatricula() + " | CURSO: " + aluno.getCurso());
+        }
+    }
+
+    public void buscarIdAluno(Scanner sc){
+        System.out.println("Digite o ID do aluno que deseja buscar: ");
+        int id = sc.nextInt();
+
+        Aluno aluno = AlunoDAO.listarPorId(id);
+
+        System.out.println("\nID: " + aluno.getId() + " | NOME: " + aluno.getNome() + " | MATRICULA: " + aluno.getMatricula() + " | CURSO: " + aluno.getCurso());
+    }
+
 }
