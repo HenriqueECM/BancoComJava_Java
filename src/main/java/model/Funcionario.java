@@ -3,11 +3,21 @@ package model;
 public class Funcionario {
     private String nome, cargo;
     private double salario;
+    private int id;
 
-    public Funcionario(String nome, String cargo, double salario) {
+    public Funcionario(int id, String nome, String cargo, double salario) {
         this.salario = salario;
         this.cargo = cargo;
         this.nome = nome;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

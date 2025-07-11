@@ -106,7 +106,7 @@ public class Gerenciamento {
         System.out.println("Digite salario do funcionario: ");
         double salario = sc.nextDouble();
 
-        Funcionario funcionario = new Funcionario(nome, cargo, salario);
+        Funcionario funcionario = new Funcionario(0, nome, cargo, salario);
         funcionarios.inserir(funcionario);
     }
 
@@ -187,7 +187,7 @@ public class Gerenciamento {
         System.out.println("Digite novo salario do funcionario " + nome + ": ");
         double salario = sc.nextDouble();
 
-        Funcionario funcionario = new Funcionario(nome, "", salario);
+        Funcionario funcionario = new Funcionario(0, nome, "", salario);
         funcionarios.atualizarSalario(funcionario);
     }
 
@@ -247,7 +247,7 @@ public class Gerenciamento {
         System.out.println("Digite nome do funcionario que deseja deletar: ");
         String nome = sc.nextLine();
 
-        Funcionario funcionario = new Funcionario(nome, "", 0);
+        Funcionario funcionario = new Funcionario(0, nome, "", 0);
         funcionarios.deleteFuncionario(funcionario);
     }
 
@@ -283,4 +283,23 @@ public class Gerenciamento {
         System.out.println("\nID: " + aluno.getId() + " | NOME: " + aluno.getNome() + " | MATRICULA: " + aluno.getMatricula() + " | CURSO: " + aluno.getCurso());
     }
 
+    public void listarTodosProduto(){
+        List<Produtos> lista = ProdutosDAO.listar();
+        for (Produtos produto : lista) {
+            System.out.println("ID: " + produto.getId() + " | NOME: " + produto.getNome() + " | PREÇO: " + produto.getPreco() + " | QUANTIDADE: " + produto.getQuantidade());
+        }
+    }
+
+    public void buscarIdProduto(Scanner sc){
+        System.out.println("Digite o ID o produto que deseja buscar: ");
+        int id = sc.nextInt();
+
+        Produtos produto = ProdutosDAO.listarPorId(id);
+
+        System.out.println("\nID: " + produto.getId() + " | NOME: " + produto.getNome() + " | PREÇO: " + produto.getPreco() + " | QUANTIDADE: " + produto.getQuantidade());
+    }
+
+    public void listarTodosPedido(){
+
+    }
 }
