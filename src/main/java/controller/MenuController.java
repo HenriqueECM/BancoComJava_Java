@@ -288,8 +288,8 @@ public class MenuController {
                     """);
             opcao = sc.nextInt();
             switch (opcao){
-                case 1:
-                case 2:
+                case 1: listarTodosProduto(); break;
+                case 2: buscarIdProduto(sc); break;
                 case 3:
                     System.out.println("RETORNANDO...");
                     break;
@@ -314,8 +314,8 @@ public class MenuController {
                     """);
             opcao = sc.nextInt();
             switch (opcao){
-                case 1:
-                case 2:
+                case 1: listarTodosPedido(); break;
+                case 2: buscarIdPedido(sc); break;
                 case 3:
                     System.out.println("RETORNANDO...");
                     break;
@@ -340,8 +340,8 @@ public class MenuController {
                     """);
             opcao = sc.nextInt();
             switch (opcao){
-                case 1:
-                case 2:
+                case 1: listarTodosLivro(); break;
+                case 2: buscarIdLivro(sc); break;
                 case 3:
                     System.out.println("RETORNANDO...");
                     break;
@@ -366,8 +366,8 @@ public class MenuController {
                     """);
             opcao = sc.nextInt();
             switch (opcao){
-                case 1:
-                case 2:
+                case 1: listarTodosFuncionario(); break;
+                case 2: buscarIdFuncionario(sc); break;
                 case 3:
                     System.out.println("RETORNANDO...");
                     break;
