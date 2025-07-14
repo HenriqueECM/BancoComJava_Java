@@ -5,7 +5,10 @@ import model.Pedidos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PedidosDAO {
     public void inserir(Pedidos pedidos){
@@ -55,5 +58,57 @@ public class PedidosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Pedidos> listar(){
+        String sql = "SELECT id, cliente, data_pedido, total FROM pedidos";
+        List<Pedidos> pedidos = new ArrayList<>();
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String cliente = rs.getString("cliente");
+                String dataPedido = rs.getString("data_pedido");
+                double total = rs.getDouble("total");
+
+                Pedidos pedido = new Pedidos(id, cliente, dataPedido, total);
+                pedidos.add(pedido);
+
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return  pedidos;
+    }
+
+    public static Pedidos listarPorId(int id){
+        String sql = "SELECT id, cliente, data_pedido, total FROM pedidos WHERE id = ?";
+        int newId = 0;
+        String cliente = "";
+        String dataPedido = "";
+        double total = 0;
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+                newId = rs.getInt("id");
+                cliente = rs.getString("cliente");
+                dataPedido = rs.getString("data_pedido");
+                total = rs.getDouble("total");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return new Pedidos(newId, cliente, dataPedido, total);
     }
 }
