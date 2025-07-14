@@ -4,6 +4,11 @@ public class Usuario {
     private String nome, email;
     private int id;
 
+    public Usuario(String nome, String email) {
+        this.email = email;
+        this.nome = nome;
+    }
+
     public Usuario(int id, String nome, String email) {
         this.email = email;
         this.nome = nome;
