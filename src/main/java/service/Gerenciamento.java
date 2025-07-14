@@ -58,7 +58,7 @@ public class Gerenciamento {
         System.out.println("Digite a quantidade do produto: ");
         int quantidade = sc.nextInt();
 
-        Produtos produto = new Produtos(nome, preco, quantidade);
+        Produtos produto = new Produtos(0, nome, preco, quantidade);
         produtos.inserir(produto);
     }
 
@@ -147,7 +147,7 @@ public class Gerenciamento {
         System.out.println("Digite novo preço do produto: ");
         double preco = sc.nextDouble();
 
-        Produtos produto = new Produtos(nome, preco, 0);
+        Produtos produto = new Produtos(0, nome, preco, 0);
 
         produtos.atualizarPreco(produto);
     }
@@ -217,7 +217,7 @@ public class Gerenciamento {
         System.out.println("Digite nome do produto que deseja deletar: ");
         String nome = sc.nextLine();
 
-        Produtos produto = new Produtos(nome, 0, 0);
+        Produtos produto = new Produtos(0, nome, 0, 0);
         produtos.deletarProduto(produto);
     }
 
@@ -299,7 +299,5 @@ public class Gerenciamento {
         System.out.println("\nID: " + produto.getId() + " | NOME: " + produto.getNome() + " | PREÇO: " + produto.getPreco() + " | QUANTIDADE: " + produto.getQuantidade());
     }
 
-    public void listarTodosPedido(){
 
-    }
 }

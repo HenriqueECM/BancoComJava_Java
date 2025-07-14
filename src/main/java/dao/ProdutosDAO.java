@@ -5,7 +5,10 @@ import model.Produtos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProdutosDAO {
 
@@ -58,5 +61,57 @@ public class ProdutosDAO {
         catch(SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public static List<Produtos> listar(){
+        String sql = "SELECT id, nome, preco, quantidade FROM produtos";
+        List<Produtos> produtos = new ArrayList<>();
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                int quantidade = rs.getInt("quantidade");
+
+                Produtos produto = new Produtos(id, nome, preco, quantidade);
+                produtos.add(produto);
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  produtos;
+    }
+
+    public static Produtos listarPorId(int id){
+        String sql = "SELECT id, nome, preco, quantidade FROM produtos WHERE id = ?";
+        int newId = 0;
+        String nome = "";
+        double preco = 0;
+        int quantidade = 0;
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+                newId = rs.getInt("id");
+                nome = rs.getString("nome");
+                preco = rs.getDouble("preco");
+                quantidade = rs.getInt("quantidade");
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return new Produtos(newId, nome, preco, quantidade);
     }
 }
